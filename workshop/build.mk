@@ -3,4 +3,3 @@ g++ -std=c++17 main.cpp -o opencv_test_app \
     -L/usr/local/lib \
     -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc
 
-    
