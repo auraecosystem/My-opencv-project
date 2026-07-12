@@ -15,3 +15,23 @@ message(STATUS "OpenCV include directories: ${OpenCV_INCLUDE_DIRS}")
 
 add_executable(opencv_test_app main.cpp)
 target_link_libraries(opencv_test_app PRIVATE ${OpenCV_LIBS})
+
+cmake_minimum_required(VERSION 3.15)
+project(MyOpenCV LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(OpenCV REQUIRED)
+
+include_directories(${OpenCV_INCLUDE_DIRS})
+
+# Primary execution target binary mapping
+add_executable(MyOpenCVApp src/Main.cpp)
+target_link_libraries(MyOpenCVApp ${OpenCV_LIBS})
+
+# Test configuration layout architecture hooks
+enable_testing()
+add_executable(RunTests tests/test_main.cpp)
+target_link_libraries(RunTests ${OpenCV_LIBS})
+add_test(NAME CoreCppUnitTests COMMAND RunTests)
