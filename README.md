@@ -42,3 +42,4 @@ platforms:
   - Linux
   - macOS
 ---
+README.md
